@@ -1,3 +1,3 @@
-const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>;
+import Button from "./Button";
 
 export default Button;
