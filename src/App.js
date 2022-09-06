@@ -70,7 +70,7 @@ const App = () => {
         ))}
       </MenuSelector>
 
-      {/* <MenuSelector
+      <MenuSelector
         onChange={handleQuery}
         name="countries"
         label="Choose a country:"
@@ -81,7 +81,7 @@ const App = () => {
             value={getCountryName(country)}
           />
         ))}
-      </MenuSelector> */}
+      </MenuSelector>
 
       <form>
         find countries
