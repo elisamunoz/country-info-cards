@@ -1,0 +1,29 @@
+@import "../../../assets/styles/index.scss";
+
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 56px;
+  width: 100%;
+
+  background: $gray-700;
+}
+
+.content {
+  align-self: center;
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0 15px;
+  color: $white;
+
+  &:link {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
