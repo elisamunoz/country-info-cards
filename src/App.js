@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 // import { DATA_CHILE } from "./_mock";
+import PageLayout from "./ui/layout";
 import { MenuSelector, Option } from "./ui/components/MenuSelector";
 import { CountryInfo, CountryList } from "./ui/components/CountryInfo";
 import "./assets/styles/reset.scss";
-import styles from "./App.module.scss";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
@@ -59,7 +59,7 @@ const App = () => {
   console.log(getCountryByContinent(continent));
 
   return (
-    <div className={styles.app}>
+    <PageLayout>
       <MenuSelector
         onChange={handleContinent}
         name="continents"
@@ -125,7 +125,7 @@ const App = () => {
           ))}
         </div>
       )}
-    </div>
+    </PageLayout>
   );
 };
 

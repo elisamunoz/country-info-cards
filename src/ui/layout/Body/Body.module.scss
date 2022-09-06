@@ -1,0 +1,8 @@
+@import "../../../assets/styles/index.scss";
+
+.body {
+  display: flex;
+  flex-grow: 1;
+  background: $gray-200;
+  padding: 50px 40px;
+}
