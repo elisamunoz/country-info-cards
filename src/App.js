@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 // import { DATA_CHILE } from "./_mock";
-import { CountryInfo, CountryList } from "./components/CountryInfo";
+import { MenuSelector, Option } from "./ui/components/MenuSelector";
+import { CountryInfo, CountryList } from "./ui/components/CountryInfo";
+import "./assets/styles/reset.scss";
+import styles from "./App.module.scss";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
+  const [continent, setContinent] = useState([]);
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,6 +25,9 @@ const App = () => {
   const handleQuery = event => {
     setQuery(event.target.value);
   };
+  const handleContinent = event => {
+    setContinent(event.target.value);
+  };
 
   const getCountryName = country => country.name.common;
   const filterCountry = countries.filter(country =>
@@ -36,8 +43,46 @@ const App = () => {
     setQuery(getCountryName(country));
   };
 
+  const getContinents = countries => {
+    const continents = countries.map(country => country.continents[0]);
+    return [...new Set(continents)];
+  };
+
+  const getCountryByContinent = continent =>
+    countries.filter(
+      countryByContinent => countryByContinent.continents[0] === continent
+    );
+
+  // const filterCountryByContinent = continents =>
+  //   continents.map(continent => getCountryByContinent(continent));
+
+  console.log(getCountryByContinent(continent));
+
   return (
-    <div>
+    <div className={styles.app}>
+      <MenuSelector
+        onChange={handleContinent}
+        name="continents"
+        label="Choose a continent:"
+      >
+        {getContinents(countries).map(continent => (
+          <Option key={continent} value={continent} />
+        ))}
+      </MenuSelector>
+
+      {/* <MenuSelector
+        onChange={handleQuery}
+        name="countries"
+        label="Choose a country:"
+      >
+        {getCountryByContinent(continent).map(country => (
+          <Option
+            key={getCountryName(country)}
+            value={getCountryName(country)}
+          />
+        ))}
+      </MenuSelector> */}
+
       <form>
         find countries
         <input value={query} onChange={handleQuery} disabled={isLoading} />
