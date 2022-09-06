@@ -5,7 +5,6 @@ import PageLayout from "./ui/layout";
 import { MenuSelector, Option } from "./ui/components/MenuSelector";
 import { CountryInfo, CountryList } from "./ui/components/CountryInfo";
 import "./assets/styles/reset.scss";
-import styles from "./App.module.scss";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
