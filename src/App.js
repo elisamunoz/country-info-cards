@@ -4,6 +4,9 @@ import axios from "axios";
 import PageLayout from "./ui/layout";
 import { MenuSelector, Option } from "./ui/components/MenuSelector";
 import { CountryInfo, CountryList } from "./ui/components/CountryInfo";
+import WindowContainer from "./ui/components/WindowContainer";
+import myPC from "./assets/images/icons/myPC.png";
+import x from "./assets/images/icons/x.png";
 import "./assets/styles/reset.scss";
 
 const App = () => {
@@ -29,6 +32,8 @@ const App = () => {
   const handleQuery = value => {
     setQuery(value);
   };
+
+  const resetQuery = () => setQuery("");
 
   const handleContinent = value => {
     setContinent(value);
@@ -61,7 +66,7 @@ const App = () => {
   // const filterCountryByContinent = continents =>
   //   continents.map(continent => getCountryByContinent(continent));
 
-  console.log(getCountryByContinent(continent));
+  // console.log(getCountryByContinent(continent));
 
   return (
     <PageLayout>
@@ -114,17 +119,25 @@ const App = () => {
       {countryLength === 1 && (
         <div>
           {filterCountry.map(country => (
-            <CountryInfo
-              name={getCountryName(country)}
-              key={country.cca3}
-              capital={country.capital}
-              area={country.area}
-              population={country.population}
-              languages={country.languages}
-              flag={country.flags.svg}
-              lat={country.latlng[0]}
-              lon={country.latlng[1]}
-            />
+            <WindowContainer
+              key={getCountryName(country)}
+              title={getCountryName(country)}
+              icon={myPC}
+              actionIcon={x}
+              onClick={resetQuery}
+            >
+              <CountryInfo
+                name={getCountryName(country)}
+                key={country.cca3}
+                capital={country.capital}
+                area={country.area}
+                population={country.population}
+                languages={country.languages}
+                flag={country.flags.svg}
+                lat={country.latlng[0]}
+                lon={country.latlng[1]}
+              />
+            </WindowContainer>
           ))}
         </div>
       )}

@@ -3,14 +3,13 @@
 .countryInfo {
   display: flex;
   flex-direction: row;
-  background: $gray-200;
-  box-sizing: border-box;
-  border: 1px solid $gray-100;
+  // background: $gray-200;
+  // box-sizing: border-box;
+  // border: 1px solid $gray-100;
   // border-top: 1px solid $gray-600;
 
   @include tablet {
     padding: 50px;
-    margin: 50px;
   }
 }
 
