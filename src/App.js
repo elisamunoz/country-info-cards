@@ -22,11 +22,11 @@ const App = () => {
   };
   useEffect(countriesHook, []);
 
-  const handleQuery = event => {
-    setQuery(event.target.value);
+  const handleQuery = value => {
+    setQuery(value);
   };
-  const handleContinent = event => {
-    setContinent(event.target.value);
+  const handleContinent = value => {
+    setContinent(value);
   };
 
   const getCountryName = country => country.name.common;
@@ -61,24 +61,22 @@ const App = () => {
   return (
     <PageLayout>
       <MenuSelector
-        onChange={handleContinent}
+        // onChange={handleContinent}
         name="continents"
         label="Choose a continent:"
       >
         {getContinents(countries).map(continent => (
-          <Option key={continent} value={continent} />
+          <Option key={continent} value={continent} onClick={handleContinent} />
         ))}
       </MenuSelector>
 
-      <MenuSelector
-        onChange={handleQuery}
-        name="countries"
-        label="Choose a country:"
-      >
+      <MenuSelector name="countries" label="Choose a country:">
         {getCountryByContinent(continent).map(country => (
           <Option
+            onClick={handleQuery}
             key={getCountryName(country)}
             value={getCountryName(country)}
+            hasMoreOptions={false}
           />
         ))}
       </MenuSelector>

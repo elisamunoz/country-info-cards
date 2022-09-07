@@ -1,13 +1,46 @@
 @import "../../../assets/styles/index.scss";
 
 .menuSelector {
+  display: flex;
+  display: none;
+  flex-direction: column;
+  margin: 15px;
+  min-width: 97px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background: $gray-50;
 }
 
 .option {
+  position: relative;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
   padding: 4px 8px;
   height: 27px;
-  background: $gray-50;
+  box-sizing: border-box;
+
+  &:hover {
+    background: $blue-50;
+    cursor: pointer;
+  }
+
+  &:active {
+    background: $primary;
+    color: $onPrimary;
+
+    .moreOptions {
+      color: $onPrimary;
+    }
+  }
+}
+
+.moreOptions {
+  position: absolute;
+  left: 97%;
+  top: 50%;
+  color: $black;
+  transform: translate(-50%, -50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid currentColor;
 }
