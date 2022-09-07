@@ -1,7 +1,7 @@
-@import "./variables";
+@import "./abstract/index.scss";
+
 @font-face {
   font-family: "Consolas";
-  src: local("Consolas"),
-   url("../../fonts/Consolas.ttf") format("truetype");
+  src: local("Consolas"), url("../../fonts/Consolas.ttf") format("truetype");
   font-weight: bold;
-  }
+}
