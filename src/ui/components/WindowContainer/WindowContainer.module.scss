@@ -1,0 +1,40 @@
+@import "../../../assets/styles/index.scss";
+
+.windowContainer {
+  display: flex;
+  flex-direction: column;
+  background: #c3c3c3;
+  box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #f0f0f0,
+    inset -4px -4px 0px #7e7e7e, inset 4px 4px 0px #b1b1b1;
+}
+
+.titleBar {
+  display: flex;
+  flex-direction: row;
+  width: 99%;
+  align-self: center;
+  background: $primary;
+  color: $white;
+  box-sizing: border-box;
+  margin: 4px 0;
+  padding: 5px 4px 5px 8px;
+}
+
+.title {
+  flex-grow: 1;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  padding-right: 5px;
+}
+
+.content {
+  flex-grow: 1;
+  background: $white;
+  padding: 5px 4px 5px 8px;
+  margin: 5px 5px 5px 4px;
+  box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #f0f0f0,
+    inset 4px 4px 0px #7e7e7e;
+}

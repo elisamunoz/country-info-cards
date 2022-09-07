@@ -55,3 +55,11 @@ $red-600: #b62b28;
 $red-700: #89201e;
 $red-800: #5b1614;
 $red-900: #2e0b0a;
+
+/* ------------------- */
+/* --- Breakpoints --- */
+/* ------------------- */
+
+$mobile: 767px !default;
+$tablet: 992px !default;
+$desktop: 1100px !default;
