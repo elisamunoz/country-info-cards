@@ -6,7 +6,7 @@ import { MenuSelector, Option } from "./ui/components/MenuSelector";
 import { CountryInfo, CountryList } from "./ui/components/CountryInfo";
 import WindowContainer from "./ui/components/WindowContainer";
 import myPC from "./assets/images/icons/myPC.png";
-import x from "./assets/images/icons/x.png";
+import closingButton from "./assets/images/icons/x.png";
 import "./assets/styles/reset.scss";
 
 const App = () => {
@@ -123,7 +123,7 @@ const App = () => {
               key={getCountryName(country)}
               title={getCountryName(country)}
               icon={myPC}
-              actionIcon={x}
+              actionIcon={closingButton}
               onClick={resetQuery}
             >
               <CountryInfo
