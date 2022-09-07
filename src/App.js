@@ -22,9 +22,14 @@ const App = () => {
   };
   useEffect(countriesHook, []);
 
+  const handleInputQuery = event => {
+    setQuery(event.target.value);
+  };
+
   const handleQuery = value => {
     setQuery(value);
   };
+
   const handleContinent = value => {
     setContinent(value);
   };
@@ -83,7 +88,7 @@ const App = () => {
 
       <form>
         find countries
-        <input value={query} onChange={handleQuery} disabled={isLoading} />
+        <input value={query} onChange={handleInputQuery} disabled={isLoading} />
       </form>
 
       {isLoading && <span>Loading...</span>}
