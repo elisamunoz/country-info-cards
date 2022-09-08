@@ -2,9 +2,15 @@
 
 .body {
   display: flex;
+  justify-content: space-around;
   flex-grow: 1;
   background: #57a8a9;
   padding: 50px 40px;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+  }
 }
 
 .content {
@@ -14,4 +20,8 @@
   @include tablet {
     flex-direction: row;
   }
+}
+
+.desktopIcons {
+  width: 150px;
 }
