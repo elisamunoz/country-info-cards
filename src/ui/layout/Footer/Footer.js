@@ -15,11 +15,9 @@ const Clock = () => {
     setInterval(() => setDateState(new Date()), 30000);
   }, []);
 
-  // const today = new Date();
-  // const time = `${today.getHours()}:${today.getMinutes()}`;
   return (
     <div className={styles.clockDiv}>
-      <img src={speakerIcon} className={styles.icon} />
+      <img alt="clock icon" src={speakerIcon} className={styles.icon} />
       <span className={styles.clock}>
         {dateState.toLocaleString("en-US", {
           hour: "numeric",
