@@ -4,6 +4,7 @@ import axios from "axios";
 import PageLayout from "./ui/layout";
 import { MenuSelector, Option } from "./ui/components/MenuSelector";
 import { CountryInfo, CountryList } from "./ui/components/CountryInfo";
+import { playWindowsStartSound } from "./functions/helpers";
 import WindowContainer from "./ui/components/WindowContainer";
 import myPC from "./assets/images/icons/myPC.png";
 import closingButton from "./assets/images/icons/x.png";
@@ -23,7 +24,10 @@ const App = () => {
       setIsLoading(false);
     });
   };
-  useEffect(countriesHook, []);
+  useEffect(() => {
+    countriesHook();
+    playWindowsStartSound();
+  }, []);
 
   const handleInputQuery = event => {
     setQuery(event.target.value);

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import windows95Sound from "../../../assets/Windows-95-startup-sound.wav";
+import { playWindowsStartSound } from "../../../functions/helpers";
 import startIcon from "../../../assets/images/icons/start.png";
 import speakerIcon from "../../../assets/images/icons/speaker.png";
 import styles from "./Footer.module.scss";
@@ -24,12 +24,11 @@ const Clock = () => {
   useEffect(() => {
     setInterval(() => setDateState(new Date()), 30000);
   }, []);
-  const playSound = sound => new Audio(sound).play();
 
   return (
     <div className={styles.clockDiv}>
       <img
-        onClick={() => playSound(windows95Sound)}
+        onClick={playWindowsStartSound}
         alt="clock icon"
         src={speakerIcon}
         className={styles.icon}

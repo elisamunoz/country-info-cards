@@ -3,12 +3,17 @@ $button-height: 46px;
 
 .footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   height: 66px;
   width: 100%;
-
+  padding: 0 8px;
+  box-sizing: border-box;
   background: $gray-300;
   box-shadow: inset 2px 2px 0px $gray-50;
+
+  @include tablet {
+    justify-content: space-between;
+  }
 }
 
 .button {
