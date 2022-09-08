@@ -2,28 +2,46 @@
 
 .footer {
   display: flex;
-  justify-content: center;
-  height: 56px;
+  justify-content: space-around;
+  height: 66px;
   width: 100%;
 
-  background: $gray-700;
+  background: $gray-300;
+  box-shadow: inset 2px 2px 0px $gray-50;
 }
 
 .content {
   align-self: center;
 }
 
-.text {
-  font-size: 16px;
-  font-weight: 400;
-  padding: 0 15px;
-  color: $white;
-
-  &:link {
-    text-decoration: none;
-  }
-
-  &:hover {
-    text-decoration: underline;
-  }
+.clockDiv {
+  display: flex;
+  align-self: center;
+  padding: 7px;
+  width: 166px;
+  height: 46px;
+  box-sizing: border-box;
+  box-shadow: inset -2px -2px 0px $gray-50, inset 2px 2px 0px #7e7e7e;
 }
+
+.clock {
+  align-self: center;
+  font-weight: 900;
+  font-size: 24px;
+  padding-left: 16px;
+}
+
+// .text {
+//   font-size: 16px;
+//   font-weight: 400;
+//   padding: 0 15px;
+//   color: $white;
+
+//   &:link {
+//     text-decoration: none;
+//   }
+
+//   &:hover {
+//     text-decoration: underline;
+//   }
+// }
