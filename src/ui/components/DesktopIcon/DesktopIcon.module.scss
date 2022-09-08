@@ -1,0 +1,26 @@
+@import "../../../assets/styles/index.scss";
+
+.desktopIcon {
+  margin: 20px;
+  width: 120px;
+  text-align: center;
+
+  // margin: 20px 0;
+  // width: 120px;
+  // text-align: center;
+}
+
+.name {
+  color: $white;
+  font-size: 17px;
+  padding-top: 6px;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: $white;
+  }
+}
