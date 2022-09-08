@@ -1,16 +1,23 @@
 import { useState, useEffect } from "react";
 import windows95Sound from "../../../assets/Windows-95-startup-sound.wav";
+import startIcon from "../../../assets/images/icons/start.png";
 import speakerIcon from "../../../assets/images/icons/speaker.png";
 import styles from "./Footer.module.scss";
 
 const Footer = ({ children }) => (
   <footer className={styles.footer}>
+    <Button src={startIcon} buttonText="Search" />
     <div className={styles.content}>{children}</div>
     <Clock />
   </footer>
 );
 
-const Button = () => <button className={styles.button}></button>;
+const Button = ({ src, buttonText }) => (
+  <div className={styles.button} role="button">
+    <img src={src} />
+    <span className={styles.buttonText}>{buttonText}</span>
+  </div>
+);
 
 const Clock = () => {
   const [dateState, setDateState] = useState(new Date());
