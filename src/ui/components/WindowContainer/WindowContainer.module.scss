@@ -5,9 +5,12 @@
   flex-direction: column;
   background: $gray-300;
   height: 500px;
-  min-width: 450px;
+  width: 100%;
   box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #f0f0f0,
     inset -4px -4px 0px #7e7e7e, inset 4px 4px 0px #b1b1b1;
+  @include tablet {
+    min-width: 450px;
+  }
 }
 
 .titleBar {
