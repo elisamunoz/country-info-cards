@@ -104,6 +104,7 @@ const App = () => {
         <form className={styles.form}>
           Find countries:
           <input
+            placeholder="Type a country name"
             className={styles.query}
             value={query}
             onChange={handleInputQuery}
