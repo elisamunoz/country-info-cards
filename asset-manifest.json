@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/country-info-cards/static/css/main.ebd78485.css",
+    "main.css": "/country-info-cards/static/css/main.40be3962.css",
     "main.js": "/country-info-cards/static/js/main.35bfe461.js",
     "static/media/Windows-95-startup-sound.wav": "/country-info-cards/static/media/Windows-95-startup-sound.1dc0f6a4c8ba598f03ab.wav",
     "static/media/Consolas.ttf": "/country-info-cards/static/media/Consolas.b6b2a3b58f74f7c8ccf8.ttf",
     "static/media/myCV.pdf": "/country-info-cards/static/media/myCV.3d95ea0b6b4e7d7c067b.pdf",
     "index.html": "/country-info-cards/index.html",
-    "main.ebd78485.css.map": "/country-info-cards/static/css/main.ebd78485.css.map",
+    "main.40be3962.css.map": "/country-info-cards/static/css/main.40be3962.css.map",
     "main.35bfe461.js.map": "/country-info-cards/static/js/main.35bfe461.js.map"
   },
   "entrypoints": [
-    "static/css/main.ebd78485.css",
+    "static/css/main.40be3962.css",
     "static/js/main.35bfe461.js"
   ]
 }
