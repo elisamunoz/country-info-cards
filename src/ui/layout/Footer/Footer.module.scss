@@ -1,29 +1,72 @@
 @import "../../../assets/styles/index.scss";
+$button-height: 46px;
 
 .footer {
   display: flex;
-  justify-content: center;
-  height: 56px;
+  justify-content: flex-end;
+  height: 66px;
   width: 100%;
+  padding: 0 8px;
+  box-sizing: border-box;
+  background: $gray-300;
+  box-shadow: inset 2px 2px 0px $gray-50;
 
-  background: $gray-700;
+  @include tablet {
+    // justify-content: space-between;
+  }
+}
+
+.button {
+  display: none;
+  align-self: center;
+  height: $button-height;
+  background: $gray-300;
+  box-sizing: border-box;
+  padding: 7px;
+  margin: 0 4px;
+  box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px $gray-50,
+    inset -4px -4px 0px #7e7e7e, inset 4px 4px 0px #b1b1b1;
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+.buttonText {
+  align-self: center;
+  text-transform: capitalize;
+  font-size: 20px;
+  padding-left: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content {
+  display: none;
+  justify-content: flex-end;
   align-self: center;
+
+  @include tablet {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+  }
 }
 
-.text {
-  font-size: 16px;
-  font-weight: 400;
-  padding: 0 15px;
-  color: $white;
+.clockDiv {
+  display: flex;
+  align-self: center;
+  padding: 7px;
+  width: 166px;
+  height: $button-height;
+  box-sizing: border-box;
+  box-shadow: inset -2px -2px 0px $gray-50, inset 2px 2px 0px #7e7e7e;
+}
 
-  &:link {
-    text-decoration: none;
-  }
-
-  &:hover {
-    text-decoration: underline;
-  }
+.clock {
+  align-self: center;
+  font-weight: 900;
+  font-size: 24px;
+  padding-left: 12px;
 }

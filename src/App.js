@@ -4,9 +4,11 @@ import axios from "axios";
 import PageLayout from "./ui/layout";
 import { MenuSelector, Option } from "./ui/components/MenuSelector";
 import { CountryInfo, CountryList } from "./ui/components/CountryInfo";
+// import { playWindowsStartSound } from "./functions/helpers";
 import WindowContainer from "./ui/components/WindowContainer";
-import myPC from "./assets/images/icons/myPC.png";
+import explorer from "./assets/images/icons/explorer.png";
 import closingButton from "./assets/images/icons/x.png";
+import styles from "./App.module.scss";
 import "./assets/styles/reset.scss";
 
 const App = () => {
@@ -23,7 +25,10 @@ const App = () => {
       setIsLoading(false);
     });
   };
-  useEffect(countriesHook, []);
+  useEffect(() => {
+    countriesHook();
+    // playWindowsStartSound();
+  }, []);
 
   const handleInputQuery = event => {
     setQuery(event.target.value);
@@ -69,7 +74,15 @@ const App = () => {
   // console.log(getCountryByContinent(continent));
 
   return (
-    <PageLayout>
+    <PageLayout
+      onClick={resetQuery}
+      buttonText={
+        countryLength === 1
+          ? filterCountry.map(country => getCountryName(country))
+          : null
+      }
+      showButton={countryLength === 1}
+    >
       <MenuSelector
         // onChange={handleContinent}
         name="continents"
@@ -90,31 +103,45 @@ const App = () => {
           />
         ))}
       </MenuSelector>
+      <WindowContainer
+        title="Find a Country"
+        icon={explorer}
+        // actionIcon={closingButton}
+        // onClick={resetQuery}
+      >
+        <form className={styles.form}>
+          Find countries:
+          <input
+            placeholder="Type a country name"
+            className={styles.query}
+            value={query}
+            onChange={handleInputQuery}
+            disabled={isLoading}
+          />
+        </form>
 
-      <form>
-        find countries
-        <input value={query} onChange={handleInputQuery} disabled={isLoading} />
-      </form>
+        {isLoading && <span>Loading...</span>}
 
-      {isLoading && <span>Loading...</span>}
+        {!countryLength && (
+          <p>There are no coincidences, please search again</p>
+        )}
 
-      {!countryLength && <p>There are no coincidences, please search again</p>}
+        {countryLength > MAX_COUNTRIES_ITEMS && (
+          <p>Too many matches, specify another filter</p>
+        )}
 
-      {countryLength > MAX_COUNTRIES_ITEMS && (
-        <p>Too many matches, specify another filter</p>
-      )}
-
-      {countryLength > 1 && countryLength <= MAX_COUNTRIES_ITEMS && (
-        <ul>
-          {filterCountry.map(country => (
-            <CountryList
-              onClick={() => handleSeeCountryClick(country)}
-              key={country.cca3}
-              name={getCountryName(country)}
-            />
-          ))}
-        </ul>
-      )}
+        {countryLength > 1 && countryLength <= MAX_COUNTRIES_ITEMS && (
+          <ul>
+            {filterCountry.map(country => (
+              <CountryList
+                onClick={() => handleSeeCountryClick(country)}
+                key={country.cca3}
+                name={getCountryName(country)}
+              />
+            ))}
+          </ul>
+        )}
+      </WindowContainer>
 
       {countryLength === 1 && (
         <div>
@@ -122,7 +149,7 @@ const App = () => {
             <WindowContainer
               key={getCountryName(country)}
               title={getCountryName(country)}
-              icon={myPC}
+              icon={explorer}
               actionIcon={closingButton}
               onClick={resetQuery}
             >

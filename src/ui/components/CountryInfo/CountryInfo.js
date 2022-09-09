@@ -1,4 +1,3 @@
-import Button from "../Button";
 import WeatherInfo from "../WeatherInfo";
 import styles from "./CountryInfo.module.scss";
 
@@ -40,8 +39,8 @@ const CountryInfo = ({
 const CountryList = ({ name, onClick }) => {
   return (
     <div>
-      <li>
-        {name} <Button onClick={onClick} text="See Country" />
+      <li className={styles.link} onClick={onClick}>
+        {name}
       </li>
     </div>
   );
