@@ -6,7 +6,7 @@ import { MenuSelector, Option } from "./ui/components/MenuSelector";
 import { CountryInfo, CountryList } from "./ui/components/CountryInfo";
 // import { playWindowsStartSound } from "./functions/helpers";
 import WindowContainer from "./ui/components/WindowContainer";
-import myPC from "./assets/images/icons/myPC.png";
+import explorer from "./assets/images/icons/explorer.png";
 import closingButton from "./assets/images/icons/x.png";
 import styles from "./App.module.scss";
 import "./assets/styles/reset.scss";
@@ -74,7 +74,15 @@ const App = () => {
   // console.log(getCountryByContinent(continent));
 
   return (
-    <PageLayout>
+    <PageLayout
+      onClick={resetQuery}
+      buttonText={
+        countryLength === 1
+          ? filterCountry.map(country => getCountryName(country))
+          : null
+      }
+      showButton={countryLength === 1}
+    >
       <MenuSelector
         // onChange={handleContinent}
         name="continents"
@@ -97,7 +105,7 @@ const App = () => {
       </MenuSelector>
       <WindowContainer
         title="Find a Country"
-        icon={myPC}
+        icon={explorer}
         // actionIcon={closingButton}
         // onClick={resetQuery}
       >
@@ -141,7 +149,7 @@ const App = () => {
             <WindowContainer
               key={getCountryName(country)}
               title={getCountryName(country)}
-              icon={myPC}
+              icon={explorer}
               actionIcon={closingButton}
               onClick={resetQuery}
             >

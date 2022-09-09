@@ -12,7 +12,7 @@ $button-height: 46px;
   box-shadow: inset 2px 2px 0px $gray-50;
 
   @include tablet {
-    justify-content: space-between;
+    // justify-content: space-between;
   }
 }
 
@@ -23,6 +23,7 @@ $button-height: 46px;
   background: $gray-300;
   box-sizing: border-box;
   padding: 7px;
+  margin: 0 4px;
   box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px $gray-50,
     inset -4px -4px 0px #7e7e7e, inset 4px 4px 0px #b1b1b1;
 
@@ -33,8 +34,12 @@ $button-height: 46px;
 
 .buttonText {
   align-self: center;
+  text-transform: capitalize;
   font-size: 20px;
   padding-left: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content {
@@ -44,6 +49,8 @@ $button-height: 46px;
 
   @include tablet {
     display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
   }
 }
 
@@ -63,18 +70,3 @@ $button-height: 46px;
   font-size: 24px;
   padding-left: 12px;
 }
-
-// .text {
-//   font-size: 16px;
-//   font-weight: 400;
-//   padding: 0 15px;
-//   color: $white;
-
-//   &:link {
-//     text-decoration: none;
-//   }
-
-//   &:hover {
-//     text-decoration: underline;
-//   }
-// }
