@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.c4ed7e9d.css",
-    "main.js": "/static/js/main.de09c511.js",
-    "static/media/Windows-95-startup-sound.wav": "/static/media/Windows-95-startup-sound.1dc0f6a4c8ba598f03ab.wav",
-    "static/media/Consolas.ttf": "/static/media/Consolas.b6b2a3b58f74f7c8ccf8.ttf",
-    "static/media/myCV.pdf": "/static/media/myCV.3d95ea0b6b4e7d7c067b.pdf",
-    "index.html": "/index.html",
-    "main.c4ed7e9d.css.map": "/static/css/main.c4ed7e9d.css.map",
-    "main.de09c511.js.map": "/static/js/main.de09c511.js.map"
+    "main.css": "/country-info-cards/static/css/main.ebd78485.css",
+    "main.js": "/country-info-cards/static/js/main.35bfe461.js",
+    "static/media/Windows-95-startup-sound.wav": "/country-info-cards/static/media/Windows-95-startup-sound.1dc0f6a4c8ba598f03ab.wav",
+    "static/media/Consolas.ttf": "/country-info-cards/static/media/Consolas.b6b2a3b58f74f7c8ccf8.ttf",
+    "static/media/myCV.pdf": "/country-info-cards/static/media/myCV.3d95ea0b6b4e7d7c067b.pdf",
+    "index.html": "/country-info-cards/index.html",
+    "main.ebd78485.css.map": "/country-info-cards/static/css/main.ebd78485.css.map",
+    "main.35bfe461.js.map": "/country-info-cards/static/js/main.35bfe461.js.map"
   },
   "entrypoints": [
-    "static/css/main.c4ed7e9d.css",
-    "static/js/main.de09c511.js"
+    "static/css/main.ebd78485.css",
+    "static/js/main.35bfe461.js"
   ]
 }
