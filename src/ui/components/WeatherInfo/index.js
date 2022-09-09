@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import styles from "./WeatherInfo.module.scss";
 // import { WEATHER_SANTIAGO } from "../../_mock";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -25,11 +26,12 @@ const WeatherInfo = ({ capital, lat, lon }) => {
 
   return (
     <div>
-      <h4>Weather in {capital}</h4>
+      <h4 className={styles.mainText}>Weather in {capital}</h4>
       {temperature.map(temp => (
-        <p key={temp.temp}>
-          {temp.temp} °C, feels like: {temp.feels_like} °C
-        </p>
+        <>
+          <p className={styles.temperature}>{temp.temp}°C</p>
+          <p>feels like: {temp.feels_like} °C</p>
+        </>
       ))}
       {weather.map(weatherInfo => {
         const { id, main, description, icon } = weatherInfo[0];

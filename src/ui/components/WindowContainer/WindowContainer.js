@@ -1,7 +1,15 @@
+import classname from "classnames";
 import styles from "./WindowContainer.module.scss";
 
-const WindowContainer = ({ children, title, icon, actionIcon, onClick }) => (
-  <div className={styles.windowContainer}>
+const WindowContainer = ({
+  className,
+  children,
+  title,
+  icon,
+  actionIcon,
+  onClick
+}) => (
+  <div className={classname(styles.windowContainer, className)}>
     <div className={styles.titleBar}>
       <img src={icon} className={styles.icon} />
       <h3 className={styles.title}>{title}</h3>

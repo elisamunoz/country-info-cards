@@ -152,6 +152,7 @@ const App = () => {
               icon={explorer}
               actionIcon={closingButton}
               onClick={resetQuery}
+              className={styles.countryWindow}
             >
               <CountryInfo
                 name={getCountryName(country)}

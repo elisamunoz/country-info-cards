@@ -16,21 +16,36 @@ const CountryInfo = ({
 
   return (
     <div className={styles.countryInfo}>
+      <h1 className={styles.title}>{name}</h1>
       <div className={styles.country}>
-        <h1>{name}</h1>
-        <p>Capital: {capital}</p>
-        <p>Area: {numberWithCommas(area)} km²</p>
-        <p>Population: {numberWithCommas(population)}</p>
-        <p>Languages:</p>
-        <ul>
-          {Object.values(languages).map(lang => (
-            <li key={lang}>{lang}</li>
-          ))}
-        </ul>
-      </div>
-      <div className={styles.flagAndWeather}>
-        <img src={flag} alt={name} width="100" height="auto" />
-        <WeatherInfo capital={capital} lat={lat} lon={lon} />
+        <div className={styles.content}>
+          <p>
+            <span className={styles.bold}>Capital: </span>
+            {capital}
+          </p>
+          <p>
+            <span className={styles.bold}>Area: </span>
+            {numberWithCommas(area)} km²
+          </p>
+          <p>
+            <span className={styles.bold}>Population: </span>
+            {numberWithCommas(population)}
+          </p>
+          <p>
+            <span className={styles.bold}>Languages: </span>
+          </p>
+          <ul>
+            {Object.values(languages).map(lang => (
+              <li className={styles.list} key={lang}>
+                {lang}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.flagAndWeather}>
+          <img src={flag} alt={name} width="100" height="auto" />
+          <WeatherInfo capital={capital} lat={lat} lon={lon} />
+        </div>
       </div>
     </div>
   );
