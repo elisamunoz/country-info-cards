@@ -1,7 +1,8 @@
 {
   "name": "country-info-cards",
   "version": "0.1.0",
-  "private": false,
+  "homepage": "https://elisamunoz.github.io/country-info-cards/",
+  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
