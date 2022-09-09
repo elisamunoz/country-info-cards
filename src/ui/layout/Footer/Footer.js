@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import classnames from "classnames";
 import { playWindowsStartSound } from "../../../functions/helpers";
 import startIcon from "../../../assets/images/icons/start.png";
 import speakerIcon from "../../../assets/images/icons/speaker.png";
@@ -6,14 +7,18 @@ import styles from "./Footer.module.scss";
 
 const Footer = ({ children }) => (
   <footer className={styles.footer}>
-    <Button src={startIcon} buttonText="Search" />
+    <FooterButton src={startIcon} buttonText="Search" />
     <div className={styles.content}>{children}</div>
     <Clock />
   </footer>
 );
 
-const Button = ({ src, buttonText }) => (
-  <div className={styles.button} role="button">
+const FooterButton = ({ src, buttonText, className, onClick }) => (
+  <div
+    className={classnames(styles.button, className)}
+    onClick={onClick}
+    role="button"
+  >
     <img src={src} />
     <span className={styles.buttonText}>{buttonText}</span>
   </div>
@@ -43,4 +48,4 @@ const Clock = () => {
     </div>
   );
 };
-export default Footer;
+export { Footer, FooterButton };

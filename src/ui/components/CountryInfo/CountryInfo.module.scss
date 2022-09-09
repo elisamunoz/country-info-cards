@@ -3,16 +3,26 @@
 .countryInfo {
   display: flex;
   flex-direction: row;
-  // background: $gray-200;
-  // box-sizing: border-box;
-  // border: 1px solid $gray-100;
-  // border-top: 1px solid $gray-600;
 
   @include tablet {
-    padding: 50px;
+    // padding: 50px;
   }
 }
 
 .country {
   padding-right: 40px;
+}
+
+.link {
+  padding: 10px 0;
+  font-size: 18px;
+  line-height: 32px;
+  text-indent: 16px;
+  text-decoration-line: underline;
+  color: $linkBlue;
+  cursor: pointer;
+
+  &:visited {
+    color: $hoverPrimary;
+  }
 }

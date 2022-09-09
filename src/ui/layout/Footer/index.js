@@ -1,3 +1,3 @@
-import Footer from "./Footer";
+import { Footer, FooterButton } from "./Footer";
 
-export default Footer;
+export { Footer, FooterButton };
