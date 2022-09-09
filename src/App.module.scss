@@ -20,6 +20,8 @@
 }
 
 .countryWindow {
-  height: 500px;
-  width: 600px;
+  @include tablet {
+    height: 500px;
+    width: 600px;
+  }
 }
