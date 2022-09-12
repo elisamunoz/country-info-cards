@@ -19,6 +19,18 @@
   }
 }
 
+.menuCountrySelector {
+  left: 311px;
+}
+
+.optionsCountry {
+  height: 30px;
+}
+
+.textCountryOption {
+  font-size: 20px;
+}
+
 .countryWindow {
   height: 570px;
   @include tablet {

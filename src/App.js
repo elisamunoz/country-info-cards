@@ -64,7 +64,7 @@ const App = () => {
 
   const getContinents = countries => {
     const continents = countries.map(country => country.continents[0]);
-    return [...new Set(continents)];
+    return [...new Set(continents.sort())];
   };
 
   const getCountryByContinent = continent =>
@@ -88,19 +88,22 @@ const App = () => {
         // onChange={handleContinent}
         name="continents"
         label="Choose a continent:"
+        isVisible
       >
         {getContinents(countries).map(continent => (
           <Option key={continent} value={continent} onClick={handleContinent} />
         ))}
       </MenuSelector>
 
-      <MenuSelector name="countries" label="Choose a country:">
+      <MenuSelector isVisible className={styles.menuCountrySelector}>
         {getCountryByContinent(continent).map(country => (
           <Option
-            onClick={handleQuery}
+            onClick={() => handleSeeCountryClick(country)}
             key={getCountryName(country)}
             value={getCountryName(country)}
             hasMoreOptions={false}
+            classNameOption={styles.optionsCountry}
+            classNameTextOption={styles.textCountryOption}
           />
         ))}
       </MenuSelector>
