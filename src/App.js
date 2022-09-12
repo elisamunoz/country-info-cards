@@ -15,6 +15,7 @@ const App = () => {
   const [countries, setCountries] = useState([]);
   const [continent, setContinent] = useState([]);
   const [query, setQuery] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const countriesHook = () => {
@@ -38,7 +39,10 @@ const App = () => {
     setQuery(value);
   };
 
-  const resetQuery = () => setQuery("");
+  const resetQuery = () => {
+    setQuery("");
+    setSelectedCountry(null);
+  };
 
   const handleContinent = value => {
     setContinent(value);
@@ -55,7 +59,7 @@ const App = () => {
   const countryLength = filterCountry.length;
 
   const handleSeeCountryClick = country => {
-    setQuery(getCountryName(country));
+    setSelectedCountry(country);
   };
 
   const getContinents = countries => {
@@ -75,13 +79,10 @@ const App = () => {
 
   return (
     <PageLayout
-      onClick={resetQuery}
-      buttonText={
-        countryLength === 1
-          ? filterCountry.map(country => getCountryName(country))
-          : null
-      }
-      showButton={countryLength === 1}
+      onClickRecycleBin={resetQuery}
+      footerButtonText={selectedCountry?.name.common}
+      showFooterButton={selectedCountry}
+      isActiveFooterButton
     >
       <MenuSelector
         // onChange={handleContinent}
@@ -130,7 +131,7 @@ const App = () => {
           <p>Too many matches, specify another filter</p>
         )}
 
-        {countryLength > 1 && countryLength <= MAX_COUNTRIES_ITEMS && (
+        {countryLength <= MAX_COUNTRIES_ITEMS && (
           <ul>
             {filterCountry.map(country => (
               <CountryList
@@ -143,30 +144,30 @@ const App = () => {
         )}
       </WindowContainer>
 
-      {countryLength === 1 && (
+      {selectedCountry && (
         <div>
-          {filterCountry.map(country => (
+          {
             <WindowContainer
-              key={getCountryName(country)}
-              title={getCountryName(country)}
+              key={getCountryName(selectedCountry)}
+              title={getCountryName(selectedCountry)}
               icon={explorer}
               actionIcon={closingButton}
               onClick={resetQuery}
               className={styles.countryWindow}
             >
               <CountryInfo
-                name={getCountryName(country)}
-                key={country.cca3}
-                capital={country.capital}
-                area={country.area}
-                population={country.population}
-                languages={country.languages}
-                flag={country.flags.svg}
-                lat={country.latlng[0]}
-                lon={country.latlng[1]}
+                name={getCountryName(selectedCountry)}
+                key={selectedCountry.cca3}
+                capital={selectedCountry.capital}
+                area={selectedCountry.area}
+                population={selectedCountry.population}
+                languages={selectedCountry.languages}
+                flag={selectedCountry.flags.svg}
+                lat={selectedCountry.latlng[0]}
+                lon={selectedCountry.latlng[1]}
               />
             </WindowContainer>
-          ))}
+          }
         </div>
       )}
     </PageLayout>

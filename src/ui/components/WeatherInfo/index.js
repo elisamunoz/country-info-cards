@@ -28,17 +28,17 @@ const WeatherInfo = ({ capital, lat, lon }) => {
     <div>
       <h4 className={styles.mainText}>Weather in {capital}</h4>
       {temperature.map(temp => (
-        <>
+        <div key={temp.temp}>
           <p className={styles.temperature}>{temp.temp}°C</p>
-          <p>feels like: {temp.feels_like} °C</p>
-        </>
+          <p>Feels like: {temp.feels_like} °C</p>
+        </div>
       ))}
       {weather.map(weatherInfo => {
         const { id, main, description, icon } = weatherInfo[0];
 
         return (
           <div key={id}>
-            <p>
+            <p className={styles.info}>
               {main}, {description}
             </p>
             <img

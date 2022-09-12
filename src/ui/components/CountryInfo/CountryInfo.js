@@ -19,19 +19,19 @@ const CountryInfo = ({
       <h1 className={styles.title}>{name}</h1>
       <div className={styles.country}>
         <div className={styles.content}>
-          <p>
+          <p className={styles.info}>
             <span className={styles.bold}>Capital: </span>
             {capital}
           </p>
-          <p>
+          <p className={styles.info}>
             <span className={styles.bold}>Area: </span>
             {numberWithCommas(area)} km²
           </p>
-          <p>
+          <p className={styles.info}>
             <span className={styles.bold}>Population: </span>
             {numberWithCommas(population)}
           </p>
-          <p>
+          <p className={styles.info}>
             <span className={styles.bold}>Languages: </span>
           </p>
           <ul>
@@ -43,7 +43,13 @@ const CountryInfo = ({
           </ul>
         </div>
         <div className={styles.flagAndWeather}>
-          <img src={flag} alt={name} width="100" height="auto" />
+          <img
+            className={styles.info}
+            src={flag}
+            alt={name}
+            width="100"
+            height="auto"
+          />
           <WeatherInfo capital={capital} lat={lat} lon={lon} />
         </div>
       </div>

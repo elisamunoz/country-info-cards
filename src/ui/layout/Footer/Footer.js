@@ -13,14 +13,14 @@ const Footer = ({ children }) => (
   </footer>
 );
 
-const FooterButton = ({ src, buttonText, className, onClick }) => (
+const FooterButton = ({ src, footerButtonText, className, onClick }) => (
   <div
     className={classnames(styles.button, className)}
     onClick={onClick}
     role="button"
   >
     <img src={src} />
-    <span className={styles.buttonText}>{buttonText}</span>
+    <span className={styles.buttonText}>{footerButtonText}</span>
   </div>
 );
 
