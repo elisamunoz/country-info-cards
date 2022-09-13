@@ -10,7 +10,8 @@ const Layout = ({
   onClickRecycleBin,
   startButtonOnClick,
   showFooterButton = false,
-  footerButtonActive = false
+  footerButtonActive = false,
+  isActiveStart = false
 }) => {
   const classNames = classname(
     styles.footerButton,
@@ -19,7 +20,10 @@ const Layout = ({
   return (
     <div className={styles.layout}>
       <Body onClick={onClickRecycleBin}>{children}</Body>
-      <Footer startButtonOnClick={startButtonOnClick}>
+      <Footer
+        isActiveStart={isActiveStart}
+        startButtonOnClick={startButtonOnClick}
+      >
         <FooterButton
           src={explorer}
           footerButtonText="Find a country"

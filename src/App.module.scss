@@ -29,10 +29,17 @@
 }
 .menuOptions {
   display: none;
+  margin: 0 102px;
 
   @include tablet {
     display: flex;
   }
+}
+
+.windowCountryCard {
+  position: absolute;
+  left: 410px;
+  top: 119px;
 }
 
 .optionsCountry {

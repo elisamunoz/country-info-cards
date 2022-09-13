@@ -5,13 +5,14 @@ import startIcon from "../../../assets/images/icons/start.png";
 import speakerIcon from "../../../assets/images/icons/speaker.png";
 import styles from "./Footer.module.scss";
 
-const Footer = ({ children, startButtonOnClick }) => (
+const Footer = ({ children, startButtonOnClick, isActiveStart }) => (
   <footer className={styles.footer}>
     <FooterButton
       onClick={startButtonOnClick}
       src={startIcon}
       footerButtonText="Search"
       alt="start icon"
+      className={isActiveStart && styles.startButtonActive}
     />
     <div className={styles.content}>{children}</div>
     <Clock />

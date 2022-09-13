@@ -85,6 +85,7 @@ const App = () => {
       showFooterButton={selectedCountry}
       startButtonOnClick={() => handleStartButton()}
       footerButtonActive
+      isActiveStart={showMainMenu}
     >
       <MenuSelector
         // onChange={handleContinent}
@@ -150,7 +151,7 @@ const App = () => {
       </WindowContainer>
 
       {selectedCountry && (
-        <div>
+        <div className={styles.windowCountryCard}>
           {
             <WindowContainer
               key={getCountryName(selectedCountry)}
