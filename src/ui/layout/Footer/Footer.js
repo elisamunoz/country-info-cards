@@ -5,9 +5,14 @@ import startIcon from "../../../assets/images/icons/start.png";
 import speakerIcon from "../../../assets/images/icons/speaker.png";
 import styles from "./Footer.module.scss";
 
-const Footer = ({ children }) => (
+const Footer = ({ children, startButtonOnClick }) => (
   <footer className={styles.footer}>
-    <FooterButton src={startIcon} buttonText="Search" />
+    <FooterButton
+      onClick={startButtonOnClick}
+      src={startIcon}
+      footerButtonText="Search"
+      alt="start icon"
+    />
     <div className={styles.content}>{children}</div>
     <Clock />
   </footer>
@@ -19,7 +24,7 @@ const FooterButton = ({ src, footerButtonText, className, onClick }) => (
     onClick={onClick}
     role="button"
   >
-    <img src={src} />
+    <img src={src} alt="window icon" />
     <span className={styles.buttonText}>{footerButtonText}</span>
   </div>
 );

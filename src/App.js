@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import { DATA_CHILE } from "./_mock";
 import PageLayout from "./ui/layout";
 import { MenuSelector, Option } from "./ui/components/MenuSelector";
 import { CountryInfo, CountryList } from "./ui/components/CountryInfo";
@@ -13,10 +12,11 @@ import "./assets/styles/reset.scss";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
-  const [continent, setContinent] = useState([]);
+  const [continent, setContinent] = useState(null);
   const [query, setQuery] = useState("");
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [showMainMenu, setShowMainMenu] = useState(false);
 
   const countriesHook = () => {
     // setCountries(DATA_CHILE);
@@ -33,10 +33,6 @@ const App = () => {
 
   const handleInputQuery = event => {
     setQuery(event.target.value);
-  };
-
-  const handleQuery = value => {
-    setQuery(value);
   };
 
   const resetQuery = () => {
@@ -60,6 +56,16 @@ const App = () => {
 
   const handleSeeCountryClick = country => {
     setSelectedCountry(country);
+    setShowMainMenu(false);
+    setContinent(null);
+  };
+
+  const handleStartButton = () => {
+    if (!showMainMenu) {
+      setContinent(null);
+    }
+
+    setShowMainMenu(!showMainMenu);
   };
 
   const getContinents = countries => {
@@ -72,30 +78,27 @@ const App = () => {
       countryByContinent => countryByContinent.continents[0] === continent
     );
 
-  // const filterCountryByContinent = continents =>
-  //   continents.map(continent => getCountryByContinent(continent));
-
-  // console.log(getCountryByContinent(continent));
-
   return (
     <PageLayout
       onClickRecycleBin={resetQuery}
       footerButtonText={selectedCountry?.name.common}
       showFooterButton={selectedCountry}
-      isActiveFooterButton
+      startButtonOnClick={() => handleStartButton()}
+      footerButtonActive
     >
       <MenuSelector
         // onChange={handleContinent}
-        name="continents"
-        label="Choose a continent:"
-        isVisible
+        isVisible={showMainMenu}
       >
         {getContinents(countries).map(continent => (
           <Option key={continent} value={continent} onClick={handleContinent} />
         ))}
       </MenuSelector>
 
-      <MenuSelector isVisible className={styles.menuCountrySelector}>
+      <MenuSelector
+        isVisible={showMainMenu}
+        className={styles.menuCountrySelector}
+      >
         {getCountryByContinent(continent).map(country => (
           <Option
             onClick={() => handleSeeCountryClick(country)}
@@ -108,10 +111,9 @@ const App = () => {
         ))}
       </MenuSelector>
       <WindowContainer
+        className={styles.menuOptions}
         title="Find a Country"
         icon={explorer}
-        // actionIcon={closingButton}
-        // onClick={resetQuery}
       >
         <form className={styles.form}>
           Find countries:

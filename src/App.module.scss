@@ -21,6 +21,18 @@
 
 .menuCountrySelector {
   left: 311px;
+  display: none;
+
+  @include tablet {
+    display: flex;
+  }
+}
+.menuOptions {
+  display: none;
+
+  @include tablet {
+    display: flex;
+  }
 }
 
 .optionsCountry {
@@ -29,6 +41,9 @@
 
 .textCountryOption {
   font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .countryWindow {
