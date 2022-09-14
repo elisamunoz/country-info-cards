@@ -6,28 +6,33 @@ import styles from "./Layout.module.scss";
 
 const Layout = ({
   children,
-  buttonText,
-  onClick,
-  showButton = false,
-  isActive = false
+  footerButtonText,
+  onClickRecycleBin,
+  startButtonOnClick,
+  showFooterButton = false,
+  footerButtonActive = false,
+  isActiveStart = false
 }) => {
   const classNames = classname(
     styles.footerButton,
-    isActive && styles.footerButtonActive
+    footerButtonActive && styles.footerButtonActive
   );
   return (
     <div className={styles.layout}>
-      <Body onClick={onClick}>{children}</Body>
-      <Footer>
+      <Body onClick={onClickRecycleBin}>{children}</Body>
+      <Footer
+        isActiveStart={isActiveStart}
+        startButtonOnClick={startButtonOnClick}
+      >
         <FooterButton
           src={explorer}
-          buttonText="Find a country"
+          footerButtonText="Find a country"
           className={classNames}
         />
-        {showButton && (
+        {showFooterButton && (
           <FooterButton
             src={explorer}
-            buttonText={buttonText}
+            footerButtonText={footerButtonText}
             className={classNames}
           />
         )}

@@ -19,6 +19,37 @@
   }
 }
 
+.menuCountrySelector {
+  left: 311px;
+  display: none;
+
+  @include tablet {
+    display: flex;
+  }
+}
+.menuOptions {
+  @include tablet {
+    margin: 0 102px;
+  }
+}
+
+.windowCountryCard {
+  @include tablet {
+    position: absolute;
+    left: 410px;
+    top: 119px;
+  }
+}
+
+.optionsCountry {
+  height: 30px;
+}
+
+.textCountryOption {
+  font-size: 20px;
+  @include ellipsis;
+}
+
 .countryWindow {
   height: 570px;
   @include tablet {

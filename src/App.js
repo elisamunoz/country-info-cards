@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import { DATA_CHILE } from "./_mock";
 import PageLayout from "./ui/layout";
 import { MenuSelector, Option } from "./ui/components/MenuSelector";
 import { CountryInfo, CountryList } from "./ui/components/CountryInfo";
@@ -13,9 +12,11 @@ import "./assets/styles/reset.scss";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
-  const [continent, setContinent] = useState([]);
+  const [continent, setContinent] = useState(null);
   const [query, setQuery] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [showMainMenu, setShowMainMenu] = useState(false);
 
   const countriesHook = () => {
     // setCountries(DATA_CHILE);
@@ -34,11 +35,10 @@ const App = () => {
     setQuery(event.target.value);
   };
 
-  const handleQuery = value => {
-    setQuery(value);
+  const resetQuery = () => {
+    setQuery("");
+    setSelectedCountry(null);
   };
-
-  const resetQuery = () => setQuery("");
 
   const handleContinent = value => {
     setContinent(value);
@@ -55,12 +55,22 @@ const App = () => {
   const countryLength = filterCountry.length;
 
   const handleSeeCountryClick = country => {
-    setQuery(getCountryName(country));
+    setSelectedCountry(country);
+    setShowMainMenu(false);
+    setContinent(null);
+  };
+
+  const handleStartButton = () => {
+    if (!showMainMenu) {
+      setContinent(null);
+    }
+
+    setShowMainMenu(!showMainMenu);
   };
 
   const getContinents = countries => {
     const continents = countries.map(country => country.continents[0]);
-    return [...new Set(continents)];
+    return [...new Set(continents.sort())];
   };
 
   const getCountryByContinent = continent =>
@@ -68,46 +78,19 @@ const App = () => {
       countryByContinent => countryByContinent.continents[0] === continent
     );
 
-  // const filterCountryByContinent = continents =>
-  //   continents.map(continent => getCountryByContinent(continent));
-
-  // console.log(getCountryByContinent(continent));
-
   return (
     <PageLayout
-      onClick={resetQuery}
-      buttonText={
-        countryLength === 1
-          ? filterCountry.map(country => getCountryName(country))
-          : null
-      }
-      showButton={countryLength === 1}
+      onClickRecycleBin={resetQuery}
+      footerButtonText={selectedCountry?.name.common}
+      showFooterButton={selectedCountry}
+      startButtonOnClick={() => handleStartButton()}
+      footerButtonActive
+      isActiveStart={showMainMenu}
     >
-      <MenuSelector
-        // onChange={handleContinent}
-        name="continents"
-        label="Choose a continent:"
-      >
-        {getContinents(countries).map(continent => (
-          <Option key={continent} value={continent} onClick={handleContinent} />
-        ))}
-      </MenuSelector>
-
-      <MenuSelector name="countries" label="Choose a country:">
-        {getCountryByContinent(continent).map(country => (
-          <Option
-            onClick={handleQuery}
-            key={getCountryName(country)}
-            value={getCountryName(country)}
-            hasMoreOptions={false}
-          />
-        ))}
-      </MenuSelector>
       <WindowContainer
+        className={styles.menuOptions}
         title="Find a Country"
         icon={explorer}
-        // actionIcon={closingButton}
-        // onClick={resetQuery}
       >
         <form className={styles.form}>
           Find countries:
@@ -130,7 +113,7 @@ const App = () => {
           <p>Too many matches, specify another filter</p>
         )}
 
-        {countryLength > 1 && countryLength <= MAX_COUNTRIES_ITEMS && (
+        {countryLength <= MAX_COUNTRIES_ITEMS && (
           <ul>
             {filterCountry.map(country => (
               <CountryList
@@ -143,32 +126,56 @@ const App = () => {
         )}
       </WindowContainer>
 
-      {countryLength === 1 && (
-        <div>
-          {filterCountry.map(country => (
+      {selectedCountry && (
+        <div className={styles.windowCountryCard}>
+          {
             <WindowContainer
-              key={getCountryName(country)}
-              title={getCountryName(country)}
+              key={getCountryName(selectedCountry)}
+              title={getCountryName(selectedCountry)}
               icon={explorer}
               actionIcon={closingButton}
               onClick={resetQuery}
               className={styles.countryWindow}
             >
               <CountryInfo
-                name={getCountryName(country)}
-                key={country.cca3}
-                capital={country.capital}
-                area={country.area}
-                population={country.population}
-                languages={country.languages}
-                flag={country.flags.svg}
-                lat={country.latlng[0]}
-                lon={country.latlng[1]}
+                name={getCountryName(selectedCountry)}
+                key={selectedCountry.cca3}
+                capital={selectedCountry.capital}
+                area={selectedCountry.area}
+                population={selectedCountry.population}
+                languages={selectedCountry.languages}
+                flag={selectedCountry.flags.svg}
+                lat={selectedCountry.latlng[0]}
+                lon={selectedCountry.latlng[1]}
               />
             </WindowContainer>
-          ))}
+          }
         </div>
       )}
+      <MenuSelector
+        // onChange={handleContinent}
+        isVisible={showMainMenu}
+      >
+        {getContinents(countries).map(continent => (
+          <Option key={continent} value={continent} onClick={handleContinent} />
+        ))}
+      </MenuSelector>
+
+      <MenuSelector
+        isVisible={showMainMenu}
+        className={styles.menuCountrySelector}
+      >
+        {getCountryByContinent(continent).map(country => (
+          <Option
+            onClick={() => handleSeeCountryClick(country)}
+            key={getCountryName(country)}
+            value={getCountryName(country)}
+            hasMoreOptions={false}
+            classNameOption={styles.optionsCountry}
+            classNameTextOption={styles.textCountryOption}
+          />
+        ))}
+      </MenuSelector>
     </PageLayout>
   );
 };

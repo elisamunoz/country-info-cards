@@ -5,22 +5,28 @@ import startIcon from "../../../assets/images/icons/start.png";
 import speakerIcon from "../../../assets/images/icons/speaker.png";
 import styles from "./Footer.module.scss";
 
-const Footer = ({ children }) => (
+const Footer = ({ children, startButtonOnClick, isActiveStart }) => (
   <footer className={styles.footer}>
-    <FooterButton src={startIcon} buttonText="Search" />
+    <FooterButton
+      onClick={startButtonOnClick}
+      src={startIcon}
+      footerButtonText="Search"
+      alt="start icon"
+      className={isActiveStart && styles.startButtonActive}
+    />
     <div className={styles.content}>{children}</div>
     <Clock />
   </footer>
 );
 
-const FooterButton = ({ src, buttonText, className, onClick }) => (
+const FooterButton = ({ src, footerButtonText, className, onClick }) => (
   <div
     className={classnames(styles.button, className)}
     onClick={onClick}
     role="button"
   >
-    <img src={src} />
-    <span className={styles.buttonText}>{buttonText}</span>
+    <img src={src} alt="window icon" />
+    <span className={styles.buttonText}>{footerButtonText}</span>
   </div>
 );
 

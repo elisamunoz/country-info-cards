@@ -27,6 +27,8 @@
 
 .title {
   flex-grow: 1;
+
+  @include ellipsis;
 }
 
 .icon {

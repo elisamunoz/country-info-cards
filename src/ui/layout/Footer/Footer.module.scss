@@ -31,15 +31,17 @@ $button-height: 46px;
     display: flex;
   }
 }
+.startButtonActive {
+  box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #f0f0f0,
+    inset 4px 4px 0px #7e7e7e, inset -4px -4px 0px #b1b1b1;
+}
 
 .buttonText {
   align-self: center;
   text-transform: capitalize;
   font-size: 20px;
   padding-left: 8px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  @include ellipsis;
 }
 
 .content {

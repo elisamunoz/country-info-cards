@@ -7,13 +7,25 @@
     @content;
   }
 }
+
 @mixin tablet {
   @media (min-width: $tablet) {
     @content;
   }
 }
+
 @mixin desktop {
   @media (min-width: $desktop) {
     @content;
   }
+}
+
+/* -------------- */
+/* --- Others --- */
+/* -------------- */
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

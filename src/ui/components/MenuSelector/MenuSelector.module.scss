@@ -1,26 +1,36 @@
 @import "../../../assets/styles/index.scss";
 
 .menuSelector {
-  display: flex;
+  position: absolute;
   display: none;
   flex-direction: column;
-  margin: 15px;
+  bottom: 0;
+  left: 0;
   min-width: 97px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  background: $gray-50;
+  // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #f0f0f0,
+    inset -4px -4px 0px #7e7e7e;
+  background: $gray-300;
+}
+
+.isVisible {
+  display: flex;
 }
 
 .option {
   position: relative;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  padding: 4px 8px;
-  height: 27px;
+  font-size: 26px;
+  line-height: 24px;
+  padding: 24px;
+  height: 72px;
+  width: 310px;
   box-sizing: border-box;
+  display: flex;
 
   &:hover {
-    background: $blue-50;
+    background: $primary;
+    color: $onPrimary;
     cursor: pointer;
   }
 
@@ -32,6 +42,10 @@
       color: $onPrimary;
     }
   }
+}
+
+.optionText {
+  align-self: center;
 }
 
 .moreOptions {

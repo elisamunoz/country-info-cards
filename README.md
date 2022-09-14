@@ -17,12 +17,11 @@ The live demo is [here.](https://elisamunoz.github.io/country-info-cards/)
 ### To use it locally
 
 Clone the repository
-`npm install` to install the dependencies
-`npm start` to run the project
+
+- `npm install` to install the dependencies
+- `npm start` to run the project
+
 It is necessary to get an API key to use the [Open Weather Map.](https://openweathermap.org/)
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
