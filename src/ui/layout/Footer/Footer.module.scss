@@ -41,9 +41,7 @@ $button-height: 46px;
   text-transform: capitalize;
   font-size: 20px;
   padding-left: 8px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  @include ellipsis;
 }
 
 .content {

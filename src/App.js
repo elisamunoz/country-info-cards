@@ -87,30 +87,6 @@ const App = () => {
       footerButtonActive
       isActiveStart={showMainMenu}
     >
-      <MenuSelector
-        // onChange={handleContinent}
-        isVisible={showMainMenu}
-      >
-        {getContinents(countries).map(continent => (
-          <Option key={continent} value={continent} onClick={handleContinent} />
-        ))}
-      </MenuSelector>
-
-      <MenuSelector
-        isVisible={showMainMenu}
-        className={styles.menuCountrySelector}
-      >
-        {getCountryByContinent(continent).map(country => (
-          <Option
-            onClick={() => handleSeeCountryClick(country)}
-            key={getCountryName(country)}
-            value={getCountryName(country)}
-            hasMoreOptions={false}
-            classNameOption={styles.optionsCountry}
-            classNameTextOption={styles.textCountryOption}
-          />
-        ))}
-      </MenuSelector>
       <WindowContainer
         className={styles.menuOptions}
         title="Find a Country"
@@ -176,6 +152,30 @@ const App = () => {
           }
         </div>
       )}
+      <MenuSelector
+        // onChange={handleContinent}
+        isVisible={showMainMenu}
+      >
+        {getContinents(countries).map(continent => (
+          <Option key={continent} value={continent} onClick={handleContinent} />
+        ))}
+      </MenuSelector>
+
+      <MenuSelector
+        isVisible={showMainMenu}
+        className={styles.menuCountrySelector}
+      >
+        {getCountryByContinent(continent).map(country => (
+          <Option
+            onClick={() => handleSeeCountryClick(country)}
+            key={getCountryName(country)}
+            value={getCountryName(country)}
+            hasMoreOptions={false}
+            classNameOption={styles.optionsCountry}
+            classNameTextOption={styles.textCountryOption}
+          />
+        ))}
+      </MenuSelector>
     </PageLayout>
   );
 };

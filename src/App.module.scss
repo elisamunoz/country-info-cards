@@ -28,18 +28,17 @@
   }
 }
 .menuOptions {
-  display: none;
-  margin: 0 102px;
-
   @include tablet {
-    display: flex;
+    margin: 0 102px;
   }
 }
 
 .windowCountryCard {
-  position: absolute;
-  left: 410px;
-  top: 119px;
+  @include tablet {
+    position: absolute;
+    left: 410px;
+    top: 119px;
+  }
 }
 
 .optionsCountry {
@@ -48,9 +47,7 @@
 
 .textCountryOption {
   font-size: 20px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @include ellipsis;
 }
 
 .countryWindow {
