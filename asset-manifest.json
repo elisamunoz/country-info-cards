@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/country-info-cards/static/css/main.6ec9bb3e.css",
-    "main.js": "/country-info-cards/static/js/main.35bfe461.js",
+    "main.css": "/country-info-cards/static/css/main.793be634.css",
+    "main.js": "/country-info-cards/static/js/main.76a53d2a.js",
     "static/media/Windows-95-startup-sound.wav": "/country-info-cards/static/media/Windows-95-startup-sound.1dc0f6a4c8ba598f03ab.wav",
     "static/media/Consolas.ttf": "/country-info-cards/static/media/Consolas.b6b2a3b58f74f7c8ccf8.ttf",
     "static/media/myCV.pdf": "/country-info-cards/static/media/myCV.3d95ea0b6b4e7d7c067b.pdf",
     "index.html": "/country-info-cards/index.html",
-    "main.6ec9bb3e.css.map": "/country-info-cards/static/css/main.6ec9bb3e.css.map",
-    "main.35bfe461.js.map": "/country-info-cards/static/js/main.35bfe461.js.map"
+    "main.793be634.css.map": "/country-info-cards/static/css/main.793be634.css.map",
+    "main.76a53d2a.js.map": "/country-info-cards/static/js/main.76a53d2a.js.map"
   },
   "entrypoints": [
-    "static/css/main.6ec9bb3e.css",
-    "static/js/main.35bfe461.js"
+    "static/css/main.793be634.css",
+    "static/js/main.76a53d2a.js"
   ]
 }
