@@ -19,7 +19,7 @@ const Layout = ({
   );
   return (
     <div className={styles.layout}>
-      <Body onClickRecicleBin={onClickRecycleBin}>
+      <Body onClickRecycleBin={onClickRecycleBin}>
         {children}
       </Body>
       <Footer
