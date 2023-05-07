@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
+import OutsideClickHandler from 'react-outside-click-handler';
 import axios from "axios";
 import PageLayout from "./ui/layout";
 import { MenuSelector, Option } from "./ui/components/MenuSelector";
 import { CountryInfo, CountryList } from "./ui/components/CountryInfo";
-// import { playWindowsStartSound } from "./functions/helpers";
 import WindowContainer from "./ui/components/WindowContainer";
 import explorer from "./assets/images/icons/explorer.png";
 import closingButton from "./assets/images/icons/x.png";
@@ -28,7 +28,6 @@ const App = () => {
   };
   useEffect(() => {
     countriesHook();
-    // playWindowsStartSound();
   }, []);
 
   const handleInputQuery = event => {
@@ -152,30 +151,35 @@ const App = () => {
           }
         </div>
       )}
-      <MenuSelector
-        // onChange={handleContinent}
-        isVisible={showMainMenu}
-      >
-        {getContinents(countries).map(continent => (
-          <Option key={continent} value={continent} onClick={handleContinent} />
-        ))}
-      </MenuSelector>
+      <OutsideClickHandler
+        onOutsideClick={() => {
+          showMainMenu && setShowMainMenu(false)
+      }}>
+        <MenuSelector
+          // onChange={handleContinent}
+          isVisible={showMainMenu}
+        >
+          {getContinents(countries).map(continent => (
+            <Option key={continent} value={continent} onClick={handleContinent} />
+          ))}
+        </MenuSelector>
 
-      <MenuSelector
-        isVisible={showMainMenu}
-        className={styles.menuCountrySelector}
-      >
-        {getCountryByContinent(continent).map(country => (
-          <Option
-            onClick={() => handleSeeCountryClick(country)}
-            key={getCountryName(country)}
-            value={getCountryName(country)}
-            hasMoreOptions={false}
-            classNameOption={styles.optionsCountry}
-            classNameTextOption={styles.textCountryOption}
-          />
-        ))}
-      </MenuSelector>
+        <MenuSelector
+          isVisible={showMainMenu}
+          className={styles.menuCountrySelector}
+        >
+          {getCountryByContinent(continent).map(country => (
+            <Option
+              onClick={() => handleSeeCountryClick(country)}
+              key={getCountryName(country)}
+              value={getCountryName(country)}
+              hasMoreOptions={false}
+              classNameOption={styles.optionsCountry}
+              classNameTextOption={styles.textCountryOption}
+            />
+          ))}
+        </MenuSelector>
+      </OutsideClickHandler>
     </PageLayout>
   );
 };

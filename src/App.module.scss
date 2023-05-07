@@ -21,11 +21,6 @@
 
 .menuCountrySelector {
   left: 311px;
-  display: none;
-
-  @include tablet {
-    display: flex;
-  }
 }
 .menuOptions {
   @include tablet {
@@ -53,7 +48,7 @@
 .countryWindow {
   height: 570px;
   @include tablet {
-    height: 640px;
+    max-height: 100%;
     width: 600px;
   }
 }

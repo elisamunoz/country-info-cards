@@ -3,25 +3,28 @@ import DesktopIcon from "../../components/DesktopIcon";
 import recycleBin from "../../../assets/images/icons/recycleBin.png";
 import styles from "./Body.module.scss";
 
-const Body = ({ children, onClick }) => (
+const Body = ({ children, onClickRecycleBin }) => (
   <div className={styles.body}>
     <div className={styles.content}>{children}</div>
     <div className={styles.desktopIcons}>
-      {DESKTOP_ICON_INFO.map(icon => (
-        <DesktopIcon
-          key={icon.name}
-          name={icon.name}
-          icon={icon.icon}
-          link={icon.link}
-          alt={icon.alt}
-        />
-      ))}
       <DesktopIcon
-        name="Delete query"
-        onClick={onClick}
-        icon={recycleBin}
-        alt="Delete query"
-      />
+          className={styles.deleteIcon}
+          name="Delete query"
+          onClick={onClickRecycleBin}
+          icon={recycleBin}
+          alt="Delete query"
+        />
+      <div className={styles.infoIcons}>
+        {DESKTOP_ICON_INFO.map(icon => (
+          <DesktopIcon
+            key={icon.name}
+            name={icon.name}
+            icon={icon.icon}
+            link={icon.link}
+            alt={icon.alt}
+          />
+        ))}
+      </div>
     </div>
   </div>
 );

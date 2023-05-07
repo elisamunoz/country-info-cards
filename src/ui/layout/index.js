@@ -19,7 +19,9 @@ const Layout = ({
   );
   return (
     <div className={styles.layout}>
-      <Body onClick={onClickRecycleBin}>{children}</Body>
+      <Body onClickRecicleBin={onClickRecycleBin}>
+        {children}
+      </Body>
       <Footer
         isActiveStart={isActiveStart}
         startButtonOnClick={startButtonOnClick}

@@ -10,7 +10,7 @@ const MenuSelector = ({ children, isVisible, className }) => (
     )}
   >
     <div className={styles.MenuSelector}>
-      <div>{children}</div>
+      <div className={styles.moreOptionsWrapper}>{children}</div>
     </div>
   </div>
 );

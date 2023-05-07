@@ -25,7 +25,10 @@
 }
 
 .desktopIcons {
-  // width: 150px;
+  display: flex;
+}
+
+.infoIcons {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
