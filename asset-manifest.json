@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/country-info-cards/static/css/main.793be634.css",
-    "main.js": "/country-info-cards/static/js/main.76a53d2a.js",
+    "main.css": "/country-info-cards/static/css/main.b39d610f.css",
+    "main.js": "/country-info-cards/static/js/main.70c6b93a.js",
     "static/media/Windows-95-startup-sound.wav": "/country-info-cards/static/media/Windows-95-startup-sound.1dc0f6a4c8ba598f03ab.wav",
     "static/media/Consolas.ttf": "/country-info-cards/static/media/Consolas.b6b2a3b58f74f7c8ccf8.ttf",
-    "static/media/myCV.pdf": "/country-info-cards/static/media/myCV.3d95ea0b6b4e7d7c067b.pdf",
+    "static/media/myCV.pdf": "/country-info-cards/static/media/myCV.865fdcd98e3766b5ac05.pdf",
     "index.html": "/country-info-cards/index.html",
-    "main.793be634.css.map": "/country-info-cards/static/css/main.793be634.css.map",
-    "main.76a53d2a.js.map": "/country-info-cards/static/js/main.76a53d2a.js.map"
+    "main.b39d610f.css.map": "/country-info-cards/static/css/main.b39d610f.css.map",
+    "main.70c6b93a.js.map": "/country-info-cards/static/js/main.70c6b93a.js.map"
   },
   "entrypoints": [
-    "static/css/main.793be634.css",
-    "static/js/main.76a53d2a.js"
+    "static/css/main.b39d610f.css",
+    "static/js/main.70c6b93a.js"
   ]
 }
