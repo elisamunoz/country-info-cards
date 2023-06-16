@@ -20,7 +20,7 @@ export const DESKTOP_ICON_INFO = [
   {
     name: "My Linkedin",
     icon: myLinkedin,
-    link: "https://www.linkedin.com/feed/",
+    link: "https://www.linkedin.com/in/elisamunozes/",
     alt: "Link to my Linkedin"
   },
   {
